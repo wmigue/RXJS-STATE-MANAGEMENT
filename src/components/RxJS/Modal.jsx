@@ -11,12 +11,14 @@ function Modal() {
   useEffect(() => {
     subscription$.subscribe(data => {
       setOpen(data)
+      return () => subscription$.unsubscribe()
     })
   })
+
   useEffect(() => {
     subscription2$.subscribe(data => {
       setComentarios(data)
-      console.log(data);
+      return () => subscription2$.unsubscribe()
     })
   })
 

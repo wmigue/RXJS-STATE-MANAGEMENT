@@ -10,6 +10,7 @@ function Counter() {
     useEffect(() => {
         subscription$.subscribe(data => {
             setCounter(data)
+            return () => subscription$.unsubscribe()
         })
     })
 

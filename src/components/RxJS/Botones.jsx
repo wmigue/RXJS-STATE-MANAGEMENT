@@ -9,6 +9,7 @@ function Botones() {
   useEffect(() => {
     subscription1$.subscribe(data => {
       setOpen(data)
+      return () => subscription1$.unsubscribe()
     })
   })
 
